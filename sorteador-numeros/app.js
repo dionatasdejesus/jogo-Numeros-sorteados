@@ -6,12 +6,16 @@ function sortear() {
   let sorteados = [];
   let numero;
 
-  for (let i = 0; i < quantidade; i++) {
-    numero = obterNumeroAleatorio(de, ate);
-    while (sorteados.includes(numero)) {
+  if (de > ate) {
+    alert("O número FINAL deve ser Menor que o número inicial!");
+  } else {
+    for (let i = 0; i < quantidade; i++) {
       numero = obterNumeroAleatorio(de, ate);
+      while (sorteados.includes(numero)) {
+        numero = obterNumeroAleatorio(de, ate);
+      }
+      sorteados.push(numero);
     }
-    sorteados.push(numero);
   }
 
   let resultado = document.getElementById("resultado");
